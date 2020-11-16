@@ -1,0 +1,23 @@
+﻿@model Ecommercee.Models.Product
+
+<h3>Produto -> Visualizar</h3>
+:)
+
+<!-- O sinal de "arroba" e para conseguir inicial ou utilizar o Razor, sendo que o Razor possibilita utilizar a linguagem C# dentro do arquivo .cshtml -->
+Razor:
+
+<!-- Dentro das chaves é possível de se utilizar a linguagem C# -->
+@{
+    string nome = "David Moraes";
+}
+<h3>@nome</h3>
+<br />
+<h2>Produto</h2>
+<b>Id:</b> @Model.Id <br />
+<b>Nome:</b> @Model.Name <br />
+<b>Descrição:</b> @Model.Description <br />
+<b>Valor:</b> @Model.Value.ToString("C") <br /> <!-- Nesse caso a letra "C" dentro do toString faz referencia a moeda real do brasil, entao o valor dessa variavel passara a valer de acordo com a moeda do brasil -->
+
+
+<br />
+Todos os direitos reservados &copy; @DateTime.Now.Year

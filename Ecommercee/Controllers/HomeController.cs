@@ -13,6 +13,11 @@ namespace Ecommercee.Controllers
             return View();
         }
 
+        public IActionResult ContatoAcao()
+        {
+            return new ContentResult() { Content = "Dados recebidos com Sucesso!!!" };
+        }
+
         public IActionResult Contato()
         {
             return View();

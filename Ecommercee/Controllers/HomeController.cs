@@ -15,7 +15,11 @@ namespace Ecommercee.Controllers
 
         public IActionResult ContatoAcao()
         {
-            return new ContentResult() { Content = "Dados recebidos com Sucesso!!!" };
+            string nome = HttpContext.Request.Form["nome"];
+            string email = HttpContext.Request.Form["email"];
+            string texto = HttpContext.Request.Form["texto"];
+
+            return new ContentResult() { Content = string.Format("Dados recebidos com Sucesso!!! <br/>Nome: {0} <br/>E-mail: {1} <br/>Texto: {2}", nome, email, texto), ContentType = "text/html" };
         }
 
         public IActionResult Contato()

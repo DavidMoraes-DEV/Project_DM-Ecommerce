@@ -15,7 +15,7 @@ namespace Ecommercee.Libraries.Email
             /* SMTP -> Servidor que vai enviar a mensagem! */
             SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
             smtp.UseDefaultCredentials = false; /*Configura para que nao seja utilizado as configuracoes iniciais padrao das credenciais */
-            smtp.Credentials = new NetworkCredential("InvestTraderrs@gmail.com", ""); /* Para funcionar antes é necessário inserir a senha da conta do Email especificado aqui */
+            smtp.Credentials = new NetworkCredential("InvestTraderrs@gmail.com", ""); /* ****Para funcionar, antes é necessário inserir a senha da conta do Email especificado aqui */
             smtp.EnableSsl = true;
 
             string corpoMsg = string.Format("<h2>Contato - DM-Ecommerce</h2>" +

@@ -39,7 +39,12 @@
 
                     <article class="card">
                         <div class="card-body p-5">
-                            <p class="alert alert-success">Mensagem de sucesso!</p>
+                            <!-- Lógica comparativa para testar quando é possível mostar a mensagem de aviso "MSG_S" após o sucesso de envio do formulário -->
+                            @if (ViewData["MSG_S"] != null)
+                            {
+                            <p class="alert alert-success">@ViewData["MSG_S"]</p>
+                            }
+                            
 
                             <form role="form" method="post" action="/Home/ContatoAcao"> <!-- Cuidado ao utilizar aqui método GET ao  invés de POST pois no metodo GET as informacoes seram passadas pela URL e ficaram expostas. Já no metodo POST as informcoes sao passadas por um FormData no corpo da requisicao e nao diretamente na URL -->
                                 <div class="form-group">

@@ -22,9 +22,12 @@ namespace Ecommercee.Controllers
             contato.Email = HttpContext.Request.Form["email"];
             contato.Texto = HttpContext.Request.Form["texto"];
 
-            ContatoEmail.EnviarContatoPorEmail(contato);
+            //Para funcionar o código abaixo de envio de Email descomentar a linha abaixo e inserir a senha da conta na classe ContatoEmail, e especificar um return adequado
+            //ContatoEmail.EnviarContatoPorEmail(contato);
 
-            return new ContentResult() { Content = string.Format("Dados recebidos com Sucesso!!! <br/>Nome: {0} <br/>E-mail: {1} <br/>Texto: {2}", contato.Nome, contato.Email, contato.Texto), ContentType = "text/html" };
+            ViewData["MSG_S"] = "Mensagem de contato enviado com sucesso!"; /* Mensagem de aviso que aparecerá após o envio do formulário for concluído com sucesso */
+
+            return View("Contato"); /* Retorna para a mesma tela após realizar a requisição do envio do formulário */
         }
 
         public IActionResult Contato()

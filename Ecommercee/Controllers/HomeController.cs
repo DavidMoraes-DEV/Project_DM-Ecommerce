@@ -17,15 +17,25 @@ namespace Ecommercee.Controllers
 
         public IActionResult ContatoAcao()
         {
-            Contato contato = new Contato();
-            contato.Nome = HttpContext.Request.Form["nome"];
-            contato.Email = HttpContext.Request.Form["email"];
-            contato.Texto = HttpContext.Request.Form["texto"];
+            try
+            {
+                Contato contato = new Contato();
+                contato.Nome = HttpContext.Request.Form["nome"];
+                contato.Email = HttpContext.Request.Form["email"];
+                contato.Texto = HttpContext.Request.Form["texto"];
 
-            //Para funcionar o código abaixo de envio de Email descomentar a linha abaixo e inserir a senha da conta na classe ContatoEmail, e especificar um return adequado
-            //ContatoEmail.EnviarContatoPorEmail(contato);
+                //Para funcionar o código abaixo de envio de Email descomentar a linha abaixo e inserir a senha da conta na classe ContatoEmail, e especificar um return adequado
+                ContatoEmail.EnviarContatoPorEmail(contato);
 
-            ViewData["MSG_S"] = "Mensagem de contato enviado com sucesso!"; /* Mensagem de aviso que aparecerá após o envio do formulário for concluído com sucesso */
+                ViewData["MSG_S"] = "Mensagem de contato enviado com sucesso!"; /* Mensagem de aviso que aparecerá após o envio do formulário for concluído com sucesso */
+            }
+            catch (Exception e)
+            {
+                ViewData["MSG_E"] = "Opss! Tivemos um erro, tente novamente mais tarde!";
+
+                //Gravar a Exceção em um Log
+                //TODO - Implementar Log
+            }
 
             return View("Contato"); /* Retorna para a mesma tela após realizar a requisição do envio do formulário */
         }

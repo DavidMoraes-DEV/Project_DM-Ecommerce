@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Ecommercee.Libraries.Email;
-using Ecommercee.Models;
+using DM_Ecommerce.Libraries.Email;
+using DM_Ecommerce.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace Ecommercee.Controllers
+namespace DM_Ecommerce.Controllers
 {
     public class HomeController : Controller
     {
@@ -31,7 +31,7 @@ namespace Ecommercee.Controllers
                 var context = new ValidationContext(contato); /* Realiza a validação dos dados da variável conforme as regras de validação contidas na classe que a variável foi pertence */
                 bool isValid = Validator.TryValidateObject(contato, context, ListMessage, true); /* Tenta validar o objeto passado, sendo o primeiro parâmetro recebido o próprio objeto, o segundo parâmetro é o contexto de validação desse objeto e o terceiro parâmetro que é a lista de mensagens caso de erro, sendo que o último parâmetro e um valor booleano para que seja verificado a validação de todos os itens antes de proseguir*/
 
-                if(isValid) /* Se tudo estiver válido conforme verificação acima será enviado o e-mail */
+                if (isValid) /* Se tudo estiver válido conforme verificação acima será enviado o e-mail */
                 {
                     ContatoEmail.EnviarContatoPorEmail(contato);
 
@@ -40,7 +40,7 @@ namespace Ecommercee.Controllers
                 else
                 {
                     StringBuilder sb = new StringBuilder();
-                    foreach(var texto in ListMessage)
+                    foreach (var texto in ListMessage)
                     {
                         sb.Append(texto.ErrorMessage + "<br />");
                     }
@@ -48,7 +48,7 @@ namespace Ecommercee.Controllers
                     ViewData["MSG_E"] = sb.ToString();
                     ViewData["CONTATO"] = contato;
                 }
-                
+
             }
             catch (Exception e)
             {

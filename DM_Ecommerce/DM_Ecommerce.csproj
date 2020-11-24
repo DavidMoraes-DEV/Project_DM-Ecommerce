@@ -3,6 +3,8 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <RootNamespace>DM_Ecommerce</RootNamespace>
+    <AssemblyName>DM_Ecommerce</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

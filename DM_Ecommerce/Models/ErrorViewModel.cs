@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Ecommercee.Models
+namespace DM_Ecommerce.Models
 {
     public class ErrorViewModel
     {

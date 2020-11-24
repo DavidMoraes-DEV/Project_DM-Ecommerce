@@ -1,4 +1,4 @@
-﻿using Ecommercee.Models;
+﻿using DM_Ecommerce.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
 
-namespace Ecommercee.Libraries.Email
+namespace DM_Ecommerce.Libraries.Email
 {
     public class ContatoEmail
     {

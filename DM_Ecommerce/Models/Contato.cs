@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Ecommercee.Libraries.Lang;
+using DM_Ecommerce.Libraries.Lang;
 using System.ComponentModel.DataAnnotations; /* namespace para utilizar o Annotations "[Require]" abaixo */
 
-namespace Ecommercee.Models
+namespace DM_Ecommerce.Models
 {
     public class Contato
     {

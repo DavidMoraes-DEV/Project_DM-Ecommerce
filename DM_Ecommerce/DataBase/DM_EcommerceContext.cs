@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Ecommercee.Models;
+using DM_Ecommerce.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Ecommercee.DataBase
+namespace DM_Ecommerce.DataBase
 {
     public class DM_EcommerceContext : DbContext
     {

@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Ecommercee.Models;
-using Ecommercee.Controllers;
+using DM_Ecommerce.Models;
+using DM_Ecommerce.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 
-namespace Ecommercee.Controllers
+namespace DM_Ecommerce.Controllers
 {
     public class ProductController : Controller /* Todo controlodor herda da classe "Controller" e essa classe pertence ao nameSpace: "Microsoft.AspNetCore.Mvc" */
     {

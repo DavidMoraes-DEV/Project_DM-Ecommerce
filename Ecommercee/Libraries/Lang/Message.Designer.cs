@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Ecomercee.Libraries.Lang {
+namespace Ecommercee.Libraries.Lang {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Ecomercee.Libraries.Lang {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Ecomercee.Libraries.Lang.Message", typeof(Message).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Ecommercee.Libraries.Lang.Message", typeof(Message).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

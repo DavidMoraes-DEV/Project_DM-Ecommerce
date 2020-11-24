@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace DM_Ecommerce.Controllers
+namespace Ecommercee.Controllers
 {
     public class HomeController : Controller
     {
@@ -46,6 +46,7 @@ namespace DM_Ecommerce.Controllers
                     }
 
                     ViewData["MSG_E"] = sb.ToString();
+                    ViewData["CONTATO"] = contato;
                 }
                 
             }

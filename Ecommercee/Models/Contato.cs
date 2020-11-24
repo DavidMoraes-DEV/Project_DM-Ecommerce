@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Ecomercee.Libraries.Lang;
+using Ecommercee.Libraries.Lang;
 using System.ComponentModel.DataAnnotations; /* namespace para utilizar o Annotations "[Require]" abaixo */
 
 namespace Ecommercee.Models

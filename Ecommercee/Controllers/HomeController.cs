@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace Ecommercee.Controllers
+namespace DM_Ecommerce.Controllers
 {
     public class HomeController : Controller
     {
@@ -42,7 +42,7 @@ namespace Ecommercee.Controllers
                     StringBuilder sb = new StringBuilder();
                     foreach(var texto in ListMessage)
                     {
-                        sb.Append(texto.ErrorMessage);
+                        sb.Append(texto.ErrorMessage + "<br />");
                     }
 
                     ViewData["MSG_E"] = sb.ToString();

@@ -5,6 +5,25 @@
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Libraries\NovaPasta1\**" />
+    <Compile Remove="Libraries\NovaPasta2\**" />
+    <Compile Remove="Libraries\NovaPasta3\**" />
+    <Compile Remove="Libraries\NovaPasta4\**" />
+    <Content Remove="Libraries\NovaPasta1\**" />
+    <Content Remove="Libraries\NovaPasta2\**" />
+    <Content Remove="Libraries\NovaPasta3\**" />
+    <Content Remove="Libraries\NovaPasta4\**" />
+    <EmbeddedResource Remove="Libraries\NovaPasta1\**" />
+    <EmbeddedResource Remove="Libraries\NovaPasta2\**" />
+    <EmbeddedResource Remove="Libraries\NovaPasta3\**" />
+    <EmbeddedResource Remove="Libraries\NovaPasta4\**" />
+    <None Remove="Libraries\NovaPasta1\**" />
+    <None Remove="Libraries\NovaPasta2\**" />
+    <None Remove="Libraries\NovaPasta3\**" />
+    <None Remove="Libraries\NovaPasta4\**" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
@@ -21,6 +40,23 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="2.2.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.2.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.4" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Compile Update="Libraries\Lang\Message.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Message.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <EmbeddedResource Update="Libraries\Lang\Message.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Message.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

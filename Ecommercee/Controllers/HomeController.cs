@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Ecommercee.Libraries.Email;
 using Ecommercee.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,6 +21,8 @@ namespace Ecommercee.Controllers
             contato.Nome = HttpContext.Request.Form["nome"];
             contato.Email = HttpContext.Request.Form["email"];
             contato.Texto = HttpContext.Request.Form["texto"];
+
+            ContatoEmail.EnviarContatoPorEmail(contato);
 
             return new ContentResult() { Content = string.Format("Dados recebidos com Sucesso!!! <br/>Nome: {0} <br/>E-mail: {1} <br/>Texto: {2}", contato.Nome, contato.Email, contato.Texto), ContentType = "text/html" };
         }

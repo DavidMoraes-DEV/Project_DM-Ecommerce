@@ -4,14 +4,16 @@ using DM_Ecommerce.DataBase;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DM_Ecommerce.Migrations
 {
     [DbContext(typeof(DM_EcommerceContext))]
-    partial class DM_EcommerceContextModelSnapshot : ModelSnapshot
+    [Migration("20201125174523_NewsletterEmail")]
+    partial class NewsletterEmail
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

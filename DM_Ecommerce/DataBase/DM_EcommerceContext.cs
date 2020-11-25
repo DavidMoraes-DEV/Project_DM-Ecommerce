@@ -22,6 +22,7 @@ namespace DM_Ecommerce.DataBase
         }
 
         public DbSet<Client> Clients { get; set; }
+        public DbSet<NewsletterEmail> NewsletterEmails { get; set; }
 
     }
 }

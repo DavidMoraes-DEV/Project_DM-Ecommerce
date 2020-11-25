@@ -159,3 +159,28 @@
         </div> <!-- row.// -->
     </div>
 </main>
+
+<form role="form" method="post" action="/Home/ContatoAcao">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-sm-6 offset-sm-2">
+                <!-- Cuidado ao utilizar aqui método GET ao  invés de POST pois no metodo GET as informacoes seram passadas pela URL e ficaram expostas. Já no metodo POST as informcoes sao passadas por um FormData no corpo da requisicao e nao diretamente na URL -->
+                <div class="form-group">
+                    <label for="nome">Cadastre seu e-mail para receber promoções</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                        </div>
+                        <input type="text" id="nome" class="form-control" name="nome" placeholder=""
+                               required="" value=""> <!-- Em value é feita uma verificação por meio de operadores ternátios, se o campo do formulário não esta nulo, para evitar exceções -->
+                    </div> <!-- input-group.// -->
+                </div> <!-- form-group.// -->
+            </div>
+            <div class="col-sm-2">
+                <br />
+                <button class="subscribe btn btn-primary btn-block" type="submit"> Enviar </button>
+            </div>
+        </div>
+    </div>
+</form>

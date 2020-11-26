@@ -22,7 +22,10 @@
                             Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
                             gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
                         </p>
-                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+                        <p>
+                            <a class="btn btn-lg btn-primary" href="#" rol
+                               e="button">Sign up today</a>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -65,13 +68,8 @@
         </a>
     </div>
 
-
-
-
-    <!-- Lista de Produtos
-            ================================================== -->
+    <!-- Lista de Produtos -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
-
 
     <div class="container" id="code_prod_complex">
         <div class="row">
@@ -159,6 +157,19 @@
         </div> <!-- row.// -->
     </div>
 </main>
+
+@{
+    /*
+     * Razor = É o motor de Template do ASP .NET
+     * Html Helper = é uma interface que fornece ao desenvolvedor a possibilidade de construir código HTML por meio da linguagem C#, auxiliando na manipulação de informações entre HTML e Tecnologia ASP .NET e ainda possibilita criar algumas estruturas vinculadas aos dados, deixando a navagação mais interligada.
+    */
+}
+
+<!-- Criar um Link com HTML normal: -->
+<a href="/home/index">Texto</a> <!-- Esse link parou de funcionar após inverter a ordem do controlador com a Ação na Classe Startup, porém o código Razor continuará funcionando -->
+
+<!-- Criar um Link HTML com o Razor e Html Helper -->
+@Html.ActionLink("Texto", "Visualizar", "Product") <!-- Com o HTML Helper, criar uma estrutura de um link, não será necessário dizer como será o endereço/URL, pois ele cria o URL automaticamnete através dos parâmetros fornecidos -->
 
 <form role="form" method="post" action="/Home/ContatoAcao">
     <div class="container">

@@ -75,7 +75,7 @@ namespace DM_Ecommerce
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}"); /* O primeiro parâmetro do template e destinado ao controlador que nesse caso foi "HOME", Ja o segundo parametro he destinado a alguma acao relacionada ao home por exemplo e o terceiro parametro he opcional sendo um id */
+                    template: "/{action=Index}/{controller=Home}/{id?}"); /* O primeiro parâmetro do template é destinado ao controlador que nesse caso foi "HOME", Ja o segundo parametro he destinado a alguma acao relacionada ao home por exemplo e o terceiro parametro he opcional sendo um id */
             });
         }
     }

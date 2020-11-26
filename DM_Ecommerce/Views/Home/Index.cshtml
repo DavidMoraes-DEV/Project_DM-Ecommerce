@@ -170,7 +170,6 @@
 {
     <div classsing="container">
         <div class="row">
-
             <div class="col-sm-6 offset-sm-2">
                 <!-- Cuidado ao utilizar aqui método GET ao  invés de POST pois no metodo GET as informacoes seram passadas pela URL e ficaram expostas. Já no metodo POST as informcoes sao passadas por um FormData no corpo da requisicao e nao diretamente na URL -->
                 <div class="form-group">
@@ -180,8 +179,10 @@
                             <span class="input-group-text"><i class="fa fa-envelope"></i></span>
                         </div>
                         <!-- Por meio de poucos caracteres no código abaixo, foi possível de forma automática criar um <input> completo utilizando código C# atravéz do Razor, sendo que no exemplo abaixo o primeiro ARROBA foi utilizado para usar o Razor para ter acesso a linguagem C# e o segundo ARROBA foi utilizada como um caracter de escape para conseguir utilizar a palavra reservada (class) -->
-                        @Html.EditorFor(m => m.Email, new { htmlAttributes = new { @class="form-control" } }) <!-- O EditorFor é uma das possibilidades de se utilizar para criar um campo de formulário, lembrando que existe outras maneiras como: CheckBox, TextBox, TextArea, RadioButton e etc... -->
+                        @Html.EditorFor(m => m.Email, new { htmlAttributes = new { @class = "form-control" } }) <!-- O EditorFor é uma das possibilidades de se utilizar para criar um campo de formulário, lembrando que existe outras maneiras como: CheckBox, TextBox, TextArea, RadioButton e etc... -->
                     </div> <!-- input-group.// -->
+                    <!-- "Html.ValidationMessageFor" é um método do HTML Helper que apresenta as mensagens de erro específicas de um determinado campo -->
+                    <span style="color: red;">@Html.ValidationMessageFor(m => m.Email)</span>
                 </div> <!-- form-group.// -->
             </div>
             <div class="col-sm-2">

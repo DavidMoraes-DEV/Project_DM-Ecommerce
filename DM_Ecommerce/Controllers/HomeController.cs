@@ -22,10 +22,15 @@ namespace DM_Ecommerce.Controllers
         [HttpPost]
         public IActionResult Index([FromForm]NewsletterEmail newsletter) /* Com esse código, já será suficiente pra receber todos os dados enviados que sejam compativeis com "NewsletterEmail", pegando o Email e atribuido a variável "newsletter", evitando colocar as atribuições o que resulta em um ganho de tempo e esforço */
         {
-            //TO-DO - Adição no banco de dados
-
-            //TO-DO - Validações
-            return View();
+            if (ModelState.IsValid)
+            {
+                //TO-DO - Adição no banco de dados
+                return RedirectToAction(nameof(Index)); /* Redireciona uma ação para uma página específica */
+            }
+            else
+            {
+                return View();
+            }
         }
 
         public IActionResult ContatoAcao()

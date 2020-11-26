@@ -179,8 +179,8 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-envelope"></i></span>
                         </div>
-                        <!-- Por meio de poucos caracteres no código abaixo, foi possível de forma automática criar um <input> completo utilizando código C# atravéz do Razor -->
-                        @Html.EditorFor(m => m.Email) <!-- O EditorFor é uma das possibilidades de se utilizar para criar um campo de formulário, lembrando que existe outras maneiras como: CheckBox, TextBox, TextArea, RadioButton e etc... -->
+                        <!-- Por meio de poucos caracteres no código abaixo, foi possível de forma automática criar um <input> completo utilizando código C# atravéz do Razor, sendo que no exemplo abaixo o primeiro ARROBA foi utilizado para usar o Razor para ter acesso a linguagem C# e o segundo ARROBA foi utilizada como um caracter de escape para conseguir utilizar a palavra reservada (class) -->
+                        @Html.EditorFor(m => m.Email, new { htmlAttributes = new { @class="form-control" } }) <!-- O EditorFor é uma das possibilidades de se utilizar para criar um campo de formulário, lembrando que existe outras maneiras como: CheckBox, TextBox, TextArea, RadioButton e etc... -->
                     </div> <!-- input-group.// -->
                 </div> <!-- form-group.// -->
             </div>

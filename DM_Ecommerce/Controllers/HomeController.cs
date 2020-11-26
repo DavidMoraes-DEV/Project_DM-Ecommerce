@@ -12,10 +12,20 @@ namespace DM_Ecommerce.Controllers
 {
     public class HomeController : Controller
     {
+        [HttpGet]
         public IActionResult Index()
         {
-            var news = new NewsletterEmail() { Email = "DavidM.designergrafico@gmail.com" };
-            return View(news);
+            return View();
+        }
+
+        /* Ao utilizar o "FromForm" é possível pegar o formulário do POST, Temos também o "FromQuery" que pega os dados da "QueryString", nesse caso foi utilizado o FromForm pois os dados do formulário é do tipo POST */
+        [HttpPost]
+        public IActionResult Index([FromForm]NewsletterEmail newsletter) /* Com esse código, já será suficiente pra receber todos os dados enviados que sejam compativeis com "NewsletterEmail", pegando o Email e atribuido a variável "newsletter", evitando colocar as atribuições o que resulta em um ganho de tempo e esforço */
+        {
+            //TO-DO - Adição no banco de dados
+
+            //TO-DO - Validações
+            return View();
         }
 
         public IActionResult ContatoAcao()

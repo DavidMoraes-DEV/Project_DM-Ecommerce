@@ -14,7 +14,8 @@ namespace DM_Ecommerce.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            var news = new NewsletterEmail() { Email = "DavidM.designergrafico@gmail.com" };
+            return View(news);
         }
 
         public IActionResult ContatoAcao()

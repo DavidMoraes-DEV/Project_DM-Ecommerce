@@ -1,4 +1,5 @@
-﻿
+﻿<!-- Ao utilizar esse comando abaixo, informamos que teremos um modelo aplicado a página e esse modelo será um objeto da classe NewsletterEmail  -->
+@model DM_Ecommerce.Models.NewsletterEmail
 @{
     ViewData["Title"] = "Index";
 }
@@ -165,14 +166,9 @@
     */
 }
 
-<!-- Criar um Link com HTML normal: -->
-<a href="/home/index">Texto</a> <!-- Esse link parou de funcionar após inverter a ordem do controlador com a Ação na Classe Startup, porém o código Razor continuará funcionando -->
-
-<!-- Criar um Link HTML com o Razor e Html Helper -->
-@Html.ActionLink("Texto", "Visualizar", "Product") <!-- Com o HTML Helper, criar uma estrutura de um link, não será necessário dizer como será o endereço/URL, pois ele cria o URL automaticamnete através dos parâmetros fornecidos -->
-
-<form role="form" method="post" action="/Home/ContatoAcao">
-    <div class="container">
+@using (Html.BeginForm("Index", "home", FormMethod.Post))
+{
+    <div classsing="container">
         <div class="row">
 
             <div class="col-sm-6 offset-sm-2">
@@ -183,8 +179,8 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-envelope"></i></span>
                         </div>
-                        <input type="text" id="nome" class="form-control" name="nome" placeholder=""
-                               required="" value=""> <!-- Em value é feita uma verificação por meio de operadores ternátios, se o campo do formulário não esta nulo, para evitar exceções -->
+                        <!-- Por meio de poucos caracteres no código abaixo, foi possível de forma automática criar um <input> completo utilizando código C# atravéz do Razor -->
+                        @Html.EditorFor(m => m.Email) <!-- O EditorFor é uma das possibilidades de se utilizar para criar um campo de formulário, lembrando que existe outras maneiras como: CheckBox, TextBox, TextArea, RadioButton e etc... -->
                     </div> <!-- input-group.// -->
                 </div> <!-- form-group.// -->
             </div>
@@ -192,6 +188,7 @@
                 <br />
                 <button class="subscribe btn btn-primary btn-block" type="submit"> Enviar </button>
             </div>
+
         </div>
     </div>
-</form>
+}

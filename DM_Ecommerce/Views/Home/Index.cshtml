@@ -34,7 +34,11 @@
                 <img class="second-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
                      alt="Second slide">
                 <div class="container">
-                    <div class="carousel-caption">
+
+                    *
+                    *
+                    *
+                    *         <div class="carousel-caption">
                         <h1>Another example headline.</h1>
                         <p>
                             Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
@@ -164,13 +168,29 @@
      * Razor = É o motor de Template do ASP .NET
      * Html Helper = é uma interface que fornece ao desenvolvedor a possibilidade de construir código HTML por meio da linguagem C#, auxiliando na manipulação de informações entre HTML e Tecnologia ASP .NET e ainda possibilita criar algumas estruturas vinculadas aos dados, deixando a navagação mais interligada.
     */
+
+    /*
+    * URL: "#" = Fragmento: Utilizado para fazer Links do tipo Âncora
+
+    */
 }
 
-@using (Html.BeginForm("Index", "home", FormMethod.Post))
+<!--
+    Em ".BeginForm" seus parâmetro da 12ª Sobrecarga são:
+    1º Parâmetro: "Nulo para Ação"
+    2º Parâmetro: "Nulo para Controlador"
+    3º Parâmetro: "Nulo para opção de Rotas"
+    4º Parâmetro: "Tipo do Método"
+    5º Parâmetro: "false = Desativa o "AntiForgery Token", sendo basicamente um processo de segurança"
+    6º Parâmetro: "Atributos Html (Construção da URL com objeto Anônimo) e o "url.Action" vai retornar a URL para chegar até a "ação"
+    
+    Formulário Antigo: "@@using (Html.BeginForm("Index", "home", FormMethod.Post))"
+-->
+@using (Html.BeginForm(null, null, null, FormMethod.Post, false, new { @action = @Url.Action("index", "home") + "#formulario" }))
 {
-    <div classsing="container">
+    <div classsing="container" id="formulario">
         <div class="row">
-            <div class="col-sm-6 offset-sm-2">
+            <div class="col-sm-8 offset-sm-2">
                 @if (TempData["MSG_S"] != null)
                 {
                     <p class="alert alert-success">@TempData["MSG_S"]</p>
@@ -195,7 +215,7 @@
             </div>
             <div class="col-sm-2">
                 <br />
-                <button class="subscribe btn btn-primary btn-block" type="submit"> Cadastre-se </button>
+                <button class="subscribe btn btn-primary btn-block" type="submit" style="margin-top: 7px"> Cadastre-se </button>
             </div>
 
         </div>

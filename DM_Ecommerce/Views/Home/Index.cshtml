@@ -171,6 +171,14 @@
     <div classsing="container">
         <div class="row">
             <div class="col-sm-6 offset-sm-2">
+                @if (TempData["MSG_S"] != null)
+                {
+                    <p class="alert alert-success">@TempData["MSG_S"]</p>
+                }
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 offset-sm-2">
                 <!-- Cuidado ao utilizar aqui método GET ao  invés de POST pois no metodo GET as informacoes seram passadas pela URL e ficaram expostas. Já no metodo POST as informcoes sao passadas por um FormData no corpo da requisicao e nao diretamente na URL -->
                 <div class="form-group">
                     <label for="nome">Cadastre seu e-mail para receber promoções</label>
@@ -187,7 +195,7 @@
             </div>
             <div class="col-sm-2">
                 <br />
-                <button class="subscribe btn btn-primary btn-block" type="submit"> Enviar </button>
+                <button class="subscribe btn btn-primary btn-block" type="submit"> Cadastre-se </button>
             </div>
 
         </div>

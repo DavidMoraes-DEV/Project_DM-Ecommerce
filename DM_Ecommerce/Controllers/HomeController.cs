@@ -7,11 +7,18 @@ using DM_Ecommerce.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
+using DM_Ecommerce.DataBase;
 
 namespace DM_Ecommerce.Controllers
 {
     public class HomeController : Controller
     {
+        private DM_EcommerceContext _banco;
+        public HomeController(DM_EcommerceContext banco)
+        {
+            _banco = banco;
+        }
+
         [HttpGet]
         public IActionResult Index()
         {
@@ -25,6 +32,12 @@ namespace DM_Ecommerce.Controllers
             if (ModelState.IsValid)
             {
                 //TO-DO - Adição no banco de dados
+                _banco.NewsletterEmails.Add(newsletter);
+                _banco.SaveChanges();
+
+                /* "ViewBag" e "ViewData" serve para enviar dados para a tela. O "ViewBag" é do tipo dinâmico e é tratado como um objeto, o "ViewData" é um Dicionário e possui "Chave/Valor". Já o TempData serve para armazenar os dados temporáriamente, sendo que enquanto os dados não forem acessados eles permaneceram armazenados */
+                TempData["MSG_S"] = "E-mail Cadastrado com Sucesso! Agora você vai receber Promoções Especiais no seu Email! Fique atento as Novidades!";
+
                 return RedirectToAction(nameof(Index)); /* Redireciona uma ação para uma página específica */
             }
             else

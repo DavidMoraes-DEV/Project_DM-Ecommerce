@@ -100,7 +100,14 @@ namespace DM_Ecommerce.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult CadastroCliente()
+        {
+            return View();
+        }
+        
+        [HttpPost]
+        public IActionResult CadastroCliente([FromForm]Client cliente)
         {
             return View();
         }

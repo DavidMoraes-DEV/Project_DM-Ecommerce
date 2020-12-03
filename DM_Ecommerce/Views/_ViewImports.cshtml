@@ -1,0 +1,21 @@
+﻿<!-- O ViewImports é responsável por permitir importar uma série de elementos desde classes até TagHelper, pois há muito mais elementos.
+    Evitando assim a necessidade de colocar por exemplo a declaração do TagHelper em cada um dos arquivos das Views, como foi feito no
+    "CadastroCliente".
+
+    * O "_ViewImports" suporta:
+        - addTagHelper (Adiciona o TagHelper)
+        - removeTagHelper (Remove o TagHelper)
+        - tagHelperPrefix (TagHelper Prefixo)
+        - using (Usar namespaces)
+        - model (Usar Modelos)
+        - inherits (Usar Herança)
+        - inject (Usar Injeção de Dependência)
+
+TagHelper possibilita e facilita utilizar diversos códigos dentro da estrutura html utilizando "asp-..." para vincular propriedades de outras classes diretamente no código html -->
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<!-- Se não quiser colocar o caminho do namespace dos modelos basta utilizar aqui no Imports o "using..." como na liha abaixo e no arquivo que irá utilizar algum modelo apenas colocar o "model NomeDoModel" que irá reconhecer o modelo -->
+@using  DM_Ecommerce.Models
+
+
+<!-- OBS.: O "ViewImports" é aplicado a todo arquivo que esta em um nível abaixo da onde o arquivo "ViewImports" está, ou seja, é aplicado a todos os arquivos que estiverem dentro de pastas que estão no mesmo lugar que o "ViewImports" -->

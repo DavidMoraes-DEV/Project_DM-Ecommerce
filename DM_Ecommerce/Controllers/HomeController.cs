@@ -107,8 +107,18 @@ namespace DM_Ecommerce.Controllers
         }
         
         [HttpPost]
-        public IActionResult CadastroCliente([FromForm]Client cliente)
+        public IActionResult CadastroCliente([FromForm]Client client)
         {
+            if(ModelState.IsValid)
+            {
+                _banco.Add(client);
+                _banco.SaveChanges();
+
+                TempData["MSG_S"] = "Cadastro Realizado com Sucesso!!!";
+
+                //To.Do - Implementar redirecionamentos diferentes (Painel, Carrinho de Compras etc...)
+                return RedirectToAction(nameof(CadastroCliente));
+            }
             return View();
         }
 

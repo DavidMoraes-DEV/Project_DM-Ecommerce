@@ -15,7 +15,7 @@
                     <div id="code_register_1">
                         <div class="card">
                             <header class="card-header">
-                                <a asp-controller="Home" asp-action="Login" href="" class="float-right btn btn-outline-primary mt-1">Log in</a>
+                                <a class="float-right btn btn-outline-primary mt-1">Entrar</a>
                                 <h4 class="card-title mt-2">Cadastro</h4>
                             </header>
                             <article class="card-body">
@@ -25,25 +25,29 @@
                                         <label asp-for="Nome">Nome</label>
                                         <!-- No código abaixo foi utilizado o código "asp-for=" para vincular a propriedade "Nome" da classe "Client" que se tornou possível através do "TagHelper" e do "Models.Client" -->
                                         <input type="text" asp-for="Nome" class="form-control" placeholder="">
+                                        <span asp-validation-for="Nome"></span>
                                     </div>
                                     <div class="col form-group">
                                         <label asp-for="Nascimento">Nascimento</label>
                                         <input type="text" asp-for="Nascimento" class="form-control" placeholder="">
+                                        <span asp-validation-for="Nascimento"></span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="gender" value="option1">
+                                        <input class="form-check-input" type="radio" asp-for="Sexo" value="M">
                                         <span class="form-check-label"> Masculino </span>
                                     </label>
                                     <label class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="gender" value="option2">
+                                        <input class="form-check-input" type="radio" asp-for="Sexo" value="F">
                                         <span class="form-check-label"> Feminino </span>
                                     </label>
+                                    <span asp-validation-for="Sexo"></span>
                                 </div>
                                 <div class="form-group">
                                     <label asp-for="CPF">CPF</label>
                                     <input type="text" asp-for="CPF" class="form-control" placeholder="">
+                                    <span asp-validation-for="CPF"></span>
                                     <small class="form-text text-muted">
                                         We'll never share your email with anyone
                                         else.
@@ -53,15 +57,18 @@
                                     <div class="form-group col-md-6">
                                         <label asp-for="Telefone">Telefone</label>
                                         <input type="text" asp-for="Telefone" class="form-control">
+                                        <span asp-validation-for="Telefone"></span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label asp-for="Email">Email</label>
-                                    <input type="email" asp-for="Email" class="form-control" placeholder="">
+                                    <input type="text" asp-for="Email" class="form-control" placeholder="">
+                                    <span asp-validation-for="Email"></span>
                                 </div>
                                 <div class="form-group">
                                     <label asp-for="Senha">Senha</label>
                                     <input class="form-control" asp-for="Senha" type="password">
+                                    <span asp-validation-for="Senha"></span>
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary btn-block"> Cadastrar </button>
@@ -69,7 +76,6 @@
                             </article>
                             <div class="border-top card-body text-center">Já é Cadastrado? <a asp-controller="Home" asp-action="Login" href="">Entrar</a></div>
                         </div>
-
                     </div>
                 </aside>
             </div>

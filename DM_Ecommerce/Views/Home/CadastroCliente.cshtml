@@ -16,7 +16,7 @@
                         <div class="card">
                             <header class="card-header">
                                 <a class="float-right btn btn-outline-primary mt-1">Entrar</a>
-                                <h4 class="card-title mt-2">Cadastro</h4>
+                                <h4 class="card-title mt-2" >Registrar-se</h4>
                             </header>
                             <article class="card-body">
                                 <div class="form-row">
@@ -48,10 +48,6 @@
                                     <label asp-for="CPF">CPF</label>
                                     <input type="text" asp-for="CPF" class="form-control" placeholder="">
                                     <span asp-validation-for="CPF"></span>
-                                    <small class="form-text text-muted">
-                                        We'll never share your email with anyone
-                                        else.
-                                    </small>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
@@ -64,6 +60,9 @@
                                     <label asp-for="Email">Email</label>
                                     <input type="text" asp-for="Email" class="form-control" placeholder="">
                                     <span asp-validation-for="Email"></span>
+                                    <small class="form-text text-muted">
+                                        Nunca compartilharemos seu e-mail com mais ninguém.
+                                    </small>
                                 </div>
                                 <div class="form-group">
                                     <label asp-for="Senha">Senha</label>
@@ -74,7 +73,7 @@
                                     <button type="submit" class="btn btn-primary btn-block"> Cadastrar </button>
                                 </div>
                             </article>
-                            <div class="border-top card-body text-center">Já é Cadastrado? <a asp-controller="Home" asp-action="Login" href="">Entrar</a></div>
+                            <div class="border-top card-body text-center">Já é Cadastrado? <a asp-action="Login" asp-controller="Home">Entrar</a></div>
                         </div>
                     </div>
                 </aside>

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace DM_Ecommerce.Models.Repositories
 {
-    interface IClientRepository
+    public interface IClientRepository
     {
         Client Login(string Email, string Senha);
 

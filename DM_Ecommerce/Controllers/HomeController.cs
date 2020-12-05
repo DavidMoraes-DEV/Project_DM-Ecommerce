@@ -8,15 +8,16 @@ using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 using DM_Ecommerce.DataBase;
+using DM_Ecommerce.Models.Repositories;
 
 namespace DM_Ecommerce.Controllers
 {
     public class HomeController : Controller
     {
-        private DM_EcommerceContext _banco;
-        public HomeController(DM_EcommerceContext banco)
+        private IClientRepository _repository;
+        public HomeController(IClientRepository repository)
         {
-            _banco = banco;
+            _repository = repository;
         }
 
         [HttpGet]
@@ -31,14 +32,16 @@ namespace DM_Ecommerce.Controllers
         {
             if (ModelState.IsValid)
             {
+                /*
                 //TO-DO - Adição no banco de dados
                 _banco.NewsletterEmails.Add(newsletter);
                 _banco.SaveChanges();
 
-                /* "ViewBag" e "ViewData" serve para enviar dados para a tela. O "ViewBag" é do tipo dinâmico e é tratado como um objeto, o "ViewData" é um Dicionário e possui "Chave/Valor". Já o TempData serve para armazenar os dados temporáriamente, sendo que enquanto os dados não forem acessados eles permaneceram armazenados */
+                /* "ViewBag" e "ViewData" serve para enviar dados para a tela. O "ViewBag" é do tipo dinâmico e é tratado como um objeto, o "ViewData" é um Dicionário e possui "Chave/Valor". Já o TempData serve para armazenar os dados temporáriamente, sendo que enquanto os dados não forem acessados eles permaneceram armazenados
                 TempData["MSG_S"] = "E-mail Cadastrado com Sucesso! Agora você vai receber Promoções Especiais no seu Email! Fique atento as Novidades!";
-
+                */
                 return RedirectToAction(nameof(Index)); /* Redireciona uma ação para uma página específica */
+                
             }
             else
             {
@@ -82,6 +85,7 @@ namespace DM_Ecommerce.Controllers
             catch (Exception e)
             {
                 ViewData["MSG_E"] = "Opss! Tivemos um erro, tente novamente mais tarde!";
+                Console.WriteLine(e.Message);
 
                 //Gravar a Exceção em um Log
                 //TODO - Implementar Log
@@ -111,8 +115,7 @@ namespace DM_Ecommerce.Controllers
         {
             if(ModelState.IsValid)
             {
-                _banco.Add(client);
-                _banco.SaveChanges();
+                _repository.Cadastrar(client);
 
                 TempData["MSG_S"] = "Cadastro Realizado com Sucesso!!!";
 

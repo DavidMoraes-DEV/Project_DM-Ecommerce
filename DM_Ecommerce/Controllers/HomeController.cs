@@ -8,16 +8,19 @@ using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 using DM_Ecommerce.DataBase;
-using DM_Ecommerce.Models.Repositories;
+using DM_Ecommerce.Models.Repositories.Contracts;
 
 namespace DM_Ecommerce.Controllers
 {
     public class HomeController : Controller
     {
-        private IClientRepository _repository;
-        public HomeController(IClientRepository repository)
+        private IClientRepository _repositoryClient;
+        private INewsletterRepository _repositoryNewsletter;
+
+        public HomeController(IClientRepository repositoryClient, INewsletterRepository repositoryNewsletter)
         {
-            _repository = repository;
+            _repositoryClient = repositoryClient;
+            _repositoryNewsletter = repositoryNewsletter;
         }
 
         [HttpGet]
@@ -32,16 +35,12 @@ namespace DM_Ecommerce.Controllers
         {
             if (ModelState.IsValid)
             {
-                /*
-                //TO-DO - Adição no banco de dados
-                _banco.NewsletterEmails.Add(newsletter);
-                _banco.SaveChanges();
+                _repositoryNewsletter.Cadastrar(newsletter);
 
-                /* "ViewBag" e "ViewData" serve para enviar dados para a tela. O "ViewBag" é do tipo dinâmico e é tratado como um objeto, o "ViewData" é um Dicionário e possui "Chave/Valor". Já o TempData serve para armazenar os dados temporáriamente, sendo que enquanto os dados não forem acessados eles permaneceram armazenados
+                /* "ViewBag" e "ViewData" serve para enviar dados para a tela. O "ViewBag" é do tipo dinâmico e é tratado como um objeto, o "ViewData" é um Dicionário e possui "Chave/Valor". Já o TempData serve para armazenar os dados temporáriamente, sendo que enquanto os dados não forem acessados eles permaneceram armazenados */
                 TempData["MSG_S"] = "E-mail Cadastrado com Sucesso! Agora você vai receber Promoções Especiais no seu Email! Fique atento as Novidades!";
-                */
+
                 return RedirectToAction(nameof(Index)); /* Redireciona uma ação para uma página específica */
-                
             }
             else
             {
@@ -115,7 +114,7 @@ namespace DM_Ecommerce.Controllers
         {
             if(ModelState.IsValid)
             {
-                _repository.Cadastrar(client);
+                _repositoryClient.Cadastrar(client);
 
                 TempData["MSG_S"] = "Cadastro Realizado com Sucesso!!!";
 

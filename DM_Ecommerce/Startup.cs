@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
+using DM_Ecommerce.Models.Repositories.Contracts;
 using DM_Ecommerce.Models.Repositories;
 
 namespace DM_Ecommerce
@@ -25,7 +26,7 @@ namespace DM_Ecommerce
         {
             //Padrão Repository
             services.AddScoped<IClientRepository, ClientRepository>(); /* Configura para que quando essas estruturas forem necessárias o código entregue por meio da Interface o acesso aos métodos que contem na classe ClientRepository */
-            
+            services.AddScoped<INewsletterRepository, NewsletterRepository>();
             
             services.Configure<CookiePolicyOptions>(options =>
             {

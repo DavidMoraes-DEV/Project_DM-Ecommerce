@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace DM_Ecommerce.Models.Repositories
+namespace DM_Ecommerce.Models.Repositories.Contracts
 {
     public interface IClientRepository
     {
@@ -14,6 +14,6 @@ namespace DM_Ecommerce.Models.Repositories
         void Atualizar(Client client);
         void Excluir(int Id);
         Client ObterClient(int Id);
-        List<Client> ObterTodosClients();
+        IEnumerable<Client> ObterTodosClients();
     }
 }

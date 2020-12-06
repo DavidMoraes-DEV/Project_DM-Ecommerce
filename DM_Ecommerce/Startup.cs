@@ -35,6 +35,9 @@ namespace DM_Ecommerce
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            /* Session - Configuração */
+            services.AddMemoryCache(); /* Guarda os dados na memória */
+            services.AddSession(options => { /* ... */ }); /* Adiciona Sessão */
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
@@ -62,6 +65,7 @@ namespace DM_Ecommerce
             app.UseDefaultFiles(); /* Esse comando permite utilizar arquivos padroes */
             app.UseStaticFiles(); /*Para que seja possível que os arquivos estáticos sejam acessados se faz necessário o uso desse comando: " app.UseStaticFile(); "*/
             app.UseCookiePolicy();
+            app.UseSession();
 
             /*
              * https://www.meusite.com.br -> Qual controlador? Sendo que será o controlador que irá pegar os Models e Views e vai fazer com que isso seja apresentado da maneira correta, pois o controlador tem o papel da gestão das requisições.

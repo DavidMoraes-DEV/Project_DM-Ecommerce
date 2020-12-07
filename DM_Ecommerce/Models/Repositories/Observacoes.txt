@@ -1,0 +1,17 @@
+﻿* Repository e Unit of work:
+
+- Unit of Work Pattern (Unidade de trabalho padrão): É usado para agrupar uma ou mais operações (geralmente operações de banco de dados) em uma única transação ou "unidade de trabalho", de mofo que todas as operações sejam aprovadas ou reprovadas como uma só.
+O Unit of work possui como característica: Manter os objetos em memória. E enviar todas as alterações de uma única vez para o Banco de Dados.
+
+- Repository (Padrão de Repositório): É Usado para gerenciar operações CRUD por meio de uma interface abstrata que expõe entidades de domínio (Os Models ou "Modelos", sendo por exemplo: Client, Newsletter, Pedido etc...) e oculta os detalhes de implementação do código de acesso ao banco de dados.
+
+* Injeção de Dependência (DI):
+
+- A classe não é mais responsável por criar ou buscar os objetos dos quais depende.
+Então quando falamos em Injeção de Dependência, estamos falando de um mecanismo que permite que seja abstraido essa necessidade de instanciar uma classe e localizar ela e esse mecanismo faz isso de forma automatica localizando ela e injetando ela na classe dependente caso haja necessidade.
+
+- DI - Serviços:
+
+	- Translent: Cria uma instância para cada chamada.
+	- Scoped: Cria uma instância para cada requisição.
+	- Singleton: Cria uma instância para toda a aplicação.

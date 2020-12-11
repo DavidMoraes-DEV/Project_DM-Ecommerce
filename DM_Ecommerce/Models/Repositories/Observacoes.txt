@@ -5,6 +5,7 @@ O Unit of work possui como característica: Manter os objetos em memória. E env
 
 - Repository (Padrão de Repositório): É Usado para gerenciar operações CRUD por meio de uma interface abstrata que expõe entidades de domínio (Os Models ou "Modelos", sendo por exemplo: Client, Newsletter, Pedido etc...) e oculta os detalhes de implementação do código de acesso ao banco de dados.
 
+
 * Injeção de Dependência (DI):
 
 - A classe não é mais responsável por criar ou buscar os objetos dos quais depende.
@@ -15,3 +16,39 @@ Então quando falamos em Injeção de Dependência, estamos falando de um mecani
 	- Translent: Cria uma instância para cada chamada.
 	- Scoped: Cria uma instância para cada requisição.
 	- Singleton: Cria uma instância para toda a aplicação.
+
+
+* Cookie:
+
+- São recursos do HTTP e estão disponíveis para qualquer linguagem BackEnd. Armazena informações do site, cliente, sessão e etc... e guarda essas informações no computador do usuário.
+
+- É útil para sites com muito tráfego pois acelera o acesso e carregamento do site no computador do usuário.
+
+- Como é guardado no computador do usuário pode ser totalmente perdido a qualquer momento.
+
+- Utilizado muito para guardar informações do usuário como preferências de produtos ou serviços pesquisados anteriormente.
+
+
+* Sessão:
+
+- São Recursos do HTTP e informações armazenados do lado do servidor e trabalha em conjunto com o "Cookie" e são uma forma de armazenagem mais segura pois fica do lado do servidor.
+
+- Pode ser armazenada no HD do Servidor, Banco de Dados ou na Memória RAM do Servidor.
+
+- Principais Servidores Web: APACHE, NGINX, Microsoft IIS.
+
+- A sessão é encerrada toda vez que fecha o navegador atual e abre um novo.
+
+
+* Escalabilidade (Servidores):
+
+- Termo utilizado para aumentar o poder de processamento de um sistema (Servidor);
+
+- Escalabilidade Vertical: Aumento do poder de processamento da mesma máquina. Existe um certo limite seja por compatibilidade de peças ou tempo de vida do computador
+
+- Escalabilidade Horizontal: Aumento do poder de processamento utilizando mais máquinas para trabalharem juntas. Não existe um limite de upgrade.
+
+- PROBLEMA: Sessão fica geralmente na memória RAM se o Servidor ficar sem energia todas as informações da Sessão salvas na memória RAM de todos os usuários ativos no momento seram perdidas.
+Mesmo depois de reiniciar o sistema e os usuários entrarem novamente teram que iniciar uma nova sessão com o Login e etc...
+
+- SOLUÇÃO: Centralizar a sessão em 1 Servidor (Geralmente de banco de dados: SQL Server, Redis, NCacha etc).

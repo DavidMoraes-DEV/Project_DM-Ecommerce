@@ -9,6 +9,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Text;
 using DM_Ecommerce.DataBase;
 using DM_Ecommerce.Models.Repositories.Contracts;
+using Microsoft.AspNetCore.Http;
 
 namespace DM_Ecommerce.Controllers
 {
@@ -98,9 +99,43 @@ namespace DM_Ecommerce.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult Login()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Login([FromForm]Client client)
+        {
+            if(client.Email == "DavidM.designergrafico@gmail.com" && client.Senha == "1234")
+            {
+                //Na Sessão é possível guardar informações do usuário como Nome, CPF, Email, Telefone e etc...
+                HttpContext.Session.Set("ID", new byte[] { 52 });  /* Armazena um ID como Array de Byte */
+                HttpContext.Session.SetString("Email", client.Email); /* Armazena uma String */
+                HttpContext.Session.SetInt32("Idade", 25); /* Armazena um valor tipo int  */
+
+                return new ContentResult() { Content = "Logado" };
+            }
+            else
+            {
+                return new ContentResult() { Content = "Não Logado" };
+            }
+        }
+
+        [HttpGet]
+        public IActionResult Painel()
+        {
+            byte[] UsuarioID;
+            /* ".TryGetValue()" É Utilizado quando usado apenas o .Set para armazenar as informações da Sessão */
+            if(HttpContext.Session.TryGetValue("ID", out UsuarioID))
+            {
+                return new ContentResult() { Content = "Usuário " + UsuarioID[0] + "Logado!" };
+            }
+            else
+            {
+                return new ContentResult() { Content = "Acesso negado." };
+            }
         }
 
         [HttpGet]

@@ -108,7 +108,7 @@ namespace DM_Ecommerce.Controllers
         [HttpPost]
         public IActionResult Login([FromForm]Client client)
         {
-            if(client.Email == "DavidM.designergrafico@gmail.com" && client.Senha == "1234")
+            if(client.Email == "DavidM.designergrafico@gmail.com" && client.Senha == "123456")
             {
                 //Na Sessão é possível guardar informações do usuário como Nome, CPF, Email, Telefone e etc...
                 HttpContext.Session.Set("ID", new byte[] { 52 });  /* Armazena um ID como Array de Byte */
